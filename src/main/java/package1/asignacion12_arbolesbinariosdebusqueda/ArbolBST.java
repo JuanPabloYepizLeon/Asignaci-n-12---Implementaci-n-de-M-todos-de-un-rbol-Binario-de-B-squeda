@@ -153,7 +153,46 @@ public class ArbolBST {
         }
     }
     
+    /**
+     * Realiza un recorrido preorden (Raiz-Izq-Der)
+     * Util para copiar el arbol
+     */
     public void preorden() {
         System.out.println("Recorrido Preorden: ");
+        preordenRecursivo(raiz);
+        System.out.println();
+    }
+    
+    /**
+     * Metodo recursivo auxiliar para preorden
+     * @param nodo El nodo actual
+     */
+    private void preordenRecursivo(Nodo nodo) {
+        if (nodo != null) {
+            System.out.println(nodo.getValor()+" ");
+            preordenRecursivo(nodo.getIzquierdo());
+            preordenRecursivo(nodo.getDerecho());
+        }
+    }
+    
+    /**
+     * Realiza un recorrido postorden (Izq-Der-Raiz)
+     */
+    public void postorden() {
+        System.out.println("Recorrido Postorden: ");
+        postordenRecursivo(raiz);
+        System.out.println();
+    }
+    
+    /**
+     * Metodo recursivo auxiliar para postorden
+     * @param nodo El nodo actual
+     */
+    private void postordenRecursivo(Nodo nodo) {
+        if (nodo != null) {
+            postordenRecursivo(nodo.getIzquierdo());
+            postordenRecursivo(nodo.getDerecho());
+            System.out.println(nodo.getValor()+" ");
+        }
     }
 }
