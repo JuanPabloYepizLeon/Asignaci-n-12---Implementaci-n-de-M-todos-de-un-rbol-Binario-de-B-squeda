@@ -21,12 +21,12 @@ public class GestorEstudiantes {
     }
 
     public void mostrarEstudiantes() {
-        System.out.println("\n=== Estudiantes ordenados por calificación ===");
+        System.out.println("\n=== Estudiantes ordenados por calificacion ===");
         arbol.inorden();
     }
 
     public void estudiantesEnRango(int min, int max) {
-        System.out.println("\nEstudiantes con calificación entre " + min + " y " + max + ":");
+        System.out.println("\nEstudiantes con calificacion entre " + min + " y " + max + ":");
         estudiantesEnRango(arbol.raiz, min, max);
     }
 

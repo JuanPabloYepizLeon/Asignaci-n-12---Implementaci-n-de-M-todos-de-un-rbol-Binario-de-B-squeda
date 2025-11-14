@@ -31,8 +31,8 @@ public class Estudiante implements Comparable<Estudiante>{
     
     
     @Override
-    public int compareTo(Estudiante o) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int compareTo(Estudiante otro) {
+        return Integer.compare(this.calificacion, otro.calificacion);
     }
 
     int getCalificacion() {
