@@ -256,7 +256,7 @@ public class ArbolBST {
             throw new IllegalStateException("El arbol esta vacio");
         }
         Nodo actual = raiz;
-        // Ir siempre a la izquierda hasta encontrar el nodo sin hijo izq
+        // Ir siempre a la izquierda hasta encontrar el nodo sin hijo izquierda
         while (actual.getIzquierdo() != null) {
             actual = actual.getIzquierdo();
         }
@@ -273,7 +273,7 @@ public class ArbolBST {
             throw new IllegalStateException("El arbol esta vacio");
         }
         Nodo actual = raiz;
-        // Ir siempre a la derecha hasta encontrar el nodo sin hijo der
+        // Ir siempre a la derecha hasta encontrar el nodo sin hijo derecho
         while (actual.getDerecho() != null) {
             actual = actual.getDerecho();
         }

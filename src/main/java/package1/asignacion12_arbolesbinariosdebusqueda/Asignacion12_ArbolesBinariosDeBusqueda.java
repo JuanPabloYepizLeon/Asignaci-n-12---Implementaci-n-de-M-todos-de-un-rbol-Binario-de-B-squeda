@@ -1,6 +1,7 @@
 package package1.asignacion12_arbolesbinariosdebusqueda;
 
 /**
+ * Nuestra clase principal para realizar las pruebas
  * @author E5
  */
 public class Asignacion12_ArbolesBinariosDeBusqueda {
