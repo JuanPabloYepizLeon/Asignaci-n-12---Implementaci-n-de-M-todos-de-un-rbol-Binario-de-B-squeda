@@ -12,7 +12,7 @@ public class ArbolBST {
     /**
      * Constructor que inicializa un arbol vacio
      */
-    public ArbolBST(Nodo raiz) {
+    public ArbolBST() {
         this.raiz = null;
     }
     
@@ -195,4 +195,105 @@ public class ArbolBST {
             System.out.println(nodo.getValor()+" ");
         }
     }
+    
+    
+     /**
+     * Calcula la altura del arbol
+     * @return 
+     */
+    public int altura() {
+        return alturaRecursiva(raiz);
+    }
+    
+    /**
+     * Metodo recursivo para calcular altura
+     * @param 
+     * @return 
+     */
+    private int alturaRecursiva(Nodo nodo) {
+        // Caso base: nodo vacío
+        if (nodo == null) {
+            return -1;
+    }
+        // Calcular altura de subárboles
+        int alturaIzq = alturaRecursiva(nodo.getIzquierdo());
+        int alturaDer = alturaRecursiva(nodo.getDerecho());
+        // La altura es el máximo + 1
+        return Math.max(alturaIzq, alturaDer) + 1;
+    }
+    
+    /**
+    * Cuenta el numero total de nodos en el arbol
+    * @return 
+    */
+    public int contarNodos() {
+        return contarNodosRecursivo(raiz);
+    }
+
+    /**
+     * Metodo recursivo para contar nodos
+     * @param  
+     * @return 
+     */
+    private int contarNodosRecursivo(Nodo nodo) {
+        // Caso base: nodo vacío
+        if (nodo == null) {
+            return 0;
+        }
+        // Contar: 1  + nodos del subárbol izquierdo + nodos del subárbol derecho
+        return 1 
+            + contarNodosRecursivo(nodo.getIzquierdo()) 
+            + contarNodosRecursivo(nodo.getDerecho());
+    }
+    
+    /**
+    * Encuentra el valor minimo en el arbol
+    * @return El valor minimo
+    * @throws IllegalStateException si el arbol esta vacio
+    */
+    public int encontrarMinimo() {
+        if (raiz == null) {
+            throw new IllegalStateException("El arbol esta vacio");
+        }
+        Nodo actual = raiz;
+        // Ir siempre a la izquierda hasta encontrar el nodo sin hijo izq
+        while (actual.getIzquierdo() != null) {
+            actual = actual.getIzquierdo();
+        }
+        return actual.getValor();
+    }
+    
+    /**
+    * Encuentra el valor maximo en el arbol
+    * @return El valor maximo
+    * @throws IllegalStateException si el arbol esta vacio
+    */
+    public int encontrarMaximo() {
+        if (raiz == null) {
+            throw new IllegalStateException("El arbol esta vacio");
+        }
+        Nodo actual = raiz;
+        // Ir siempre a la derecha hasta encontrar el nodo sin hijo der
+        while (actual.getDerecho() != null) {
+            actual = actual.getDerecho();
+        }
+        return actual.getValor();
+    }
+
+    /**
+    * Verifica si el arbol esta vacio
+    * @return verdadero si el arbol esta vacio , falso en caso contrario
+    */
+    public boolean esVacio () {
+        return raiz == null ;
+     }
+    /**
+    * Obtiene la raiz del arbol 
+    * @return El nodo raiz
+    */
+    public Nodo getRaiz () {
+        return raiz ;
+    }
+    
+    
 }
